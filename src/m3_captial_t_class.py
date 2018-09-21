@@ -2,8 +2,8 @@
 A   CapitalT   class and methods that use the Cross class.
 
 Authors: David Mutchler, Vibha Alangar, Dave Fisher, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Brandon.
+"""  # TOO: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -19,10 +19,10 @@ def main():
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
 
-    # run_test_simple_t()
-    # run_test_set_colors()
-    # run_test_move_by()
-    # run_test_clone()
+    run_test_simple_t()
+    run_test_set_colors()
+    run_test_move_by()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -112,6 +112,25 @@ class CapitalT(object):
     """
 
     def __init__(self, intersection_center, width, height, letter_thickness):
+
+        self.intersection_center = intersection_center
+        self.width = width
+        self.height = height
+        self.letter_thickness = letter_thickness
+
+        self.a = self.intersection_center
+        self.b = self.width
+        self.c = self.height
+        self.d = self.letter_thickness
+
+
+        self.corner_h1 = rg.Point(self.intersection_center.x - 0.5 * self.width, self.intersection_center.y + 0.5 * self.letter_thickness)
+        self.corner_h2 = rg.Point(self.intersection_center.x + 0.5 * self.width, self.intersection_center.y - 0.5 * self.letter_thickness)
+        self.corner_v1 = rg.Point(self.intersection_center.x - 0.5 * self.letter_thickness, self.intersection_center.y + 0.5 * self.letter_thickness)
+        self.corner_v2 = rg.Point(self.intersection_center.x + 0.5 * self.letter_thickness, self.intersection_center.y + 0.5 * self.letter_thickness + self.height)
+
+        self.h_rect = rg.Rectangle(self.corner_h1, self.corner_h2)
+        self.v_rect = rg.Rectangle(self.corner_v1, self.corner_v2)
         """
         What comes in:
            -- self
@@ -170,6 +189,9 @@ class CapitalT(object):
         Type hints:
           :type window: rg.RoseWindow
         """
+        self.v_rect.attach_to(window)
+        self.h_rect.attach_to(window)
+
         # --------------------------------------------------------------
         # TODO: 4.
         #   READ the above specification, including the Example.
@@ -197,6 +219,11 @@ class CapitalT(object):
           :type fill_color: str
           :type outline_color: str
         """
+        self.h_rect.fill_color = fill_color
+        self.v_rect.fill_color = fill_color
+        self.h_rect.outline_color = outline_color
+        self.v_rect.outline_color = outline_color
+
         # --------------------------------------------------------------
         # TODO: 5.
         #   READ the above specification, including the Example.
@@ -227,6 +254,16 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
+        self.corner_h1.x = self.corner_h1.x + dx
+        self.corner_v1.x = self.corner_v1.x + dx
+        self.corner_h1.y = self.corner_h1.y + dy
+        self.corner_v1.y = self.corner_v1.y + dy
+
+        self.corner_h2.x = self.corner_h2.x + dx
+        self.corner_v2.x = self.corner_v2.x + dx
+        self.corner_h2.y = self.corner_h2.y + dy
+        self.corner_v2.y = self.corner_v2.y + dy
+
         # --------------------------------------------------------------
         # TODO: 6.
         #   READ the above specification, including the Example.
@@ -255,6 +292,11 @@ class CapitalT(object):
         Type hints:
           :rtype: CapitalT
         """
+
+        self.intersection_center = self.a
+        self.width = self.b
+        self.height = self.c
+        self.letter_thickness = self.d
         # --------------------------------------------------------------
         # TODO: 7.
         #   READ the above specification, including the Example.
