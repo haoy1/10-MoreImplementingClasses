@@ -22,7 +22,7 @@ def main():
     run_test_simple_t()
     run_test_set_colors()
     run_test_move_by()
-    run_test_clone()
+    #run_test_clone()
 
 
 def run_test_simple_t():
@@ -122,7 +122,6 @@ class CapitalT(object):
         self.b = self.width
         self.c = self.height
         self.d = self.letter_thickness
-
 
         self.corner_h1 = rg.Point(self.intersection_center.x - 0.5 * self.width, self.intersection_center.y + 0.5 * self.letter_thickness)
         self.corner_h2 = rg.Point(self.intersection_center.x + 0.5 * self.width, self.intersection_center.y - 0.5 * self.letter_thickness)
