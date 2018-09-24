@@ -125,8 +125,8 @@ class CapitalT(object):
 
         self.corner_h1 = rg.Point(self.intersection_center.x - 0.5 * self.width, self.intersection_center.y + 0.5 * self.letter_thickness)
         self.corner_h2 = rg.Point(self.intersection_center.x + 0.5 * self.width, self.intersection_center.y - 0.5 * self.letter_thickness)
-        self.corner_v1 = rg.Point(self.intersection_center.x - 0.5 * self.letter_thickness, self.intersection_center.y + 0.5 * self.letter_thickness)
-        self.corner_v2 = rg.Point(self.intersection_center.x + 0.5 * self.letter_thickness, self.intersection_center.y + 0.5 * self.letter_thickness + self.height)
+        self.corner_v1 = rg.Point(self.intersection_center.x - 0.5 * self.letter_thickness, self.intersection_center.y - 0.5 * self.letter_thickness)
+        self.corner_v2 = rg.Point(self.intersection_center.x + 0.5 * self.letter_thickness, self.intersection_center.y - 0.5 * self.letter_thickness + self.height)
 
         self.h_rect = rg.Rectangle(self.corner_h1, self.corner_h2)
         self.v_rect = rg.Rectangle(self.corner_v1, self.corner_v2)
