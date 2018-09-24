@@ -22,7 +22,7 @@ def main():
     run_test_simple_t()
     run_test_set_colors()
     run_test_move_by()
-    #run_test_clone()
+    run_test_clone()
 
 
 def run_test_simple_t():
@@ -164,7 +164,7 @@ class CapitalT(object):
           :type letter_thickness:   int
         """
         # --------------------------------------------------------------
-        # TODO: 3.
+        # TOO: 3.
         #   READ the above specification, including the Example.
         #   Implement this method
         #   Note: you will need to also implement attach_to before testing
@@ -192,7 +192,7 @@ class CapitalT(object):
         self.h_rect.attach_to(window)
 
         # --------------------------------------------------------------
-        # TODO: 4.
+        # TDO: 4.
         #   READ the above specification, including the Example.
         #   Implement and test this method by looking at the console and
         #     the graphics window (compare it to simple_t.pdf)
@@ -224,7 +224,7 @@ class CapitalT(object):
         self.v_rect.outline_color = outline_color
 
         # --------------------------------------------------------------
-        # TODO: 5.
+        # TDO: 5.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -253,18 +253,19 @@ class CapitalT(object):
           :type dx: int
           :type dy: int
         """
-        self.corner_h1.x = self.corner_h1.x + dx
-        self.corner_v1.x = self.corner_v1.x + dx
-        self.corner_h1.y = self.corner_h1.y + dy
-        self.corner_v1.y = self.corner_v1.y + dy
 
-        self.corner_h2.x = self.corner_h2.x + dx
-        self.corner_v2.x = self.corner_v2.x + dx
-        self.corner_h2.y = self.corner_h2.y + dy
-        self.corner_v2.y = self.corner_v2.y + dy
+        self.h_rect.corner_1.x = self.h_rect.corner_1.x + dx
+        self.v_rect.corner_1.x = self.v_rect.corner_1.x + dx
+        self.h_rect.corner_1.y = self.h_rect.corner_1.y + dy
+        self.v_rect.corner_1.y = self.v_rect.corner_1.y + dy
+
+        self.h_rect.corner_2.x = self.h_rect.corner_2.x + dx
+        self.v_rect.corner_2.x = self.v_rect.corner_2.x + dx
+        self.h_rect.corner_2.y = self.h_rect.corner_2.y + dy
+        self.v_rect.corner_2.y = self.v_rect.corner_2.y + dy
 
         # --------------------------------------------------------------
-        # TODO: 6.
+        # ODO: 6.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
@@ -292,12 +293,12 @@ class CapitalT(object):
           :rtype: CapitalT
         """
 
-        self.intersection_center = self.a
-        self.width = self.b
-        self.height = self.c
-        self.letter_thickness = self.d
+        clonet = CapitalT(self.a, self.b, self.c, self.d)
+        clonet.set_colors(self.v_rect.fill_color, self.h_rect.outline_color)
+
+        return clonet
         # --------------------------------------------------------------
-        # TODO: 7.
+        # ODO: 7.
         #   READ the above specification, including the Example.
         #   Implement and test this method by uncommenting the appropriate
         #     run_test method in main. Compare the graphics window to
